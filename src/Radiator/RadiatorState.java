@@ -1,9 +1,9 @@
 package Radiator;
 
 public interface RadiatorState {
-    public void turnUp(Radiator radiator);
+    void turnUp(Radiator radiator);
 
-    public void turnDown(Radiator radiator);
+    void turnDown(Radiator radiator);
 
-    public int getPower();
+    int getPower();
 }
