@@ -1,7 +1,7 @@
 package Radiator;
 
 public class Power2State implements RadiatorState{
-    private static int power = 2;
+    private static final int power = 2;
 
     @Override
     public void turnUp(Radiator radiator) {
