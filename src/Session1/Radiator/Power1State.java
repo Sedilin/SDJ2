@@ -1,4 +1,4 @@
-package Radiator;
+package Session1.Radiator;
 
 public class Power1State implements RadiatorState{
     private static final int power = 1;

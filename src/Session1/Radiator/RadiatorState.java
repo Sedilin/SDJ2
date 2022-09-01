@@ -1,4 +1,4 @@
-package Radiator;
+package Session1.Radiator;
 
 public interface RadiatorState {
     void turnUp(Radiator radiator);

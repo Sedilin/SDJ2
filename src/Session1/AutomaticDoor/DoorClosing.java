@@ -1,4 +1,4 @@
-package AutomaticDoor;
+package Session1.AutomaticDoor;
 
 public class DoorClosing implements DoorState{
     @Override

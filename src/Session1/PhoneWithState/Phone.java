@@ -1,4 +1,4 @@
-package PhoneWithState;
+package Session1.PhoneWithState;
 public class Phone {
     private PhoneState currentState =
             new SoundState();

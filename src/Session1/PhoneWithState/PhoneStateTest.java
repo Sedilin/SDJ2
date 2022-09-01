@@ -1,4 +1,4 @@
-package PhoneWithState;
+package Session1.PhoneWithState;
 
 public class PhoneStateTest {
     public static void main(String[] args) {

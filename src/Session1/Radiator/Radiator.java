@@ -1,4 +1,4 @@
-package Radiator;
+package Session1.Radiator;
 
 public class Radiator {
     private RadiatorState currentState = new OffState();

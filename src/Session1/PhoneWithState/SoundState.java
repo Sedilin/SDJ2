@@ -1,4 +1,4 @@
-package PhoneWithState;
+package Session1.PhoneWithState;
 public class SoundState implements PhoneState {
     @Override
     public void onReceiveMessage(String txt, Phone phone) {

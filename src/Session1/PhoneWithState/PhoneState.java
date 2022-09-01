@@ -1,4 +1,4 @@
-package PhoneWithState;
+package Session1.PhoneWithState;
 public interface PhoneState {
     void onReceiveMessage(String txt, Phone phone);
 
