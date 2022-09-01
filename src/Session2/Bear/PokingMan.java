@@ -2,7 +2,7 @@ package Session2.Bear;
 
 public class PokingMan implements Runnable{
 
-    private Thread bearThread;
+    private final Thread bearThread;
 
     public PokingMan(Thread bearThread)
     {

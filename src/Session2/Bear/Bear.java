@@ -2,7 +2,7 @@ package Session2.Bear;
 
 public class Bear implements Runnable{
 
-    private Thread otherBear;
+    private final Thread otherBear;
 
     //Constructor to know about other bear
     public Bear(Thread otherBear)
