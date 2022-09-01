@@ -19,7 +19,7 @@ public class PokingMan implements Runnable{
         } catch (InterruptedException e) {
             System.out.println("Lol");
         }
-
+        //Touches a bear
         bearThread.interrupt();
         System.out.println("RIP");
     }
