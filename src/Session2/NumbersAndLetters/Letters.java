@@ -1,4 +1,4 @@
-package Session2;
+package Session2.NumbersAndLetters;
 
 public class Letters implements Runnable{
 
