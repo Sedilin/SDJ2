@@ -1,6 +1,4 @@
 package Session2.Bear;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class BearPokingRun {
