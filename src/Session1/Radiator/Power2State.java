@@ -5,7 +5,7 @@ public class Power2State implements RadiatorState{
 
     @Override
     public void turnUp(Radiator radiator) {
-        radiator.setPowerState(new Power3State());
+        radiator.setPowerState(new Power3State(radiator));
     }
 
     @Override
