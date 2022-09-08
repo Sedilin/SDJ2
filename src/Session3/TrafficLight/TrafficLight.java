@@ -1,4 +1,4 @@
-package TrafficLight;
+package Session3.TrafficLight;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

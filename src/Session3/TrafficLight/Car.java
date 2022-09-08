@@ -1,14 +1,15 @@
-package TrafficLight;
+package Session3.TrafficLight;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class Pedestrian implements PropertyChangeListener {
-    private final String name;
+public class Car implements PropertyChangeListener {
 
-    public Pedestrian(String name, PropertyChangeSubject subject)
+    private final int id;
+
+    public Car(int id, PropertyChangeSubject subject)
     {
-        this.name= name;
+        this.id= id;
         subject.addPropertyChangeListener(this);
     }
 
@@ -16,22 +17,22 @@ public class Pedestrian implements PropertyChangeListener {
     {
         if ("GREEN".equals(evt.getNewValue()))
         {
-            System.out.println("Pedestrian " + name + " waits");
+            System.out.println("Car " + id + " drives");
         }
         else if ("YELLOW".equals(evt.getNewValue()))
         {
             if ("RED".equals(evt.getOldValue()))
             {
-                System.out.println("Pedestrian " + name + " runs faster across the road");
+                System.out.println("Car " + id + " turns engine on");
             }
             else
             {
-                System.out.println("Pedestrian " + name + " prepares to cross the road");
+                System.out.println("Car " + id + " slows down");
             }
         }
         else if ("RED".equals(evt.getNewValue()))
         {
-            System.out.println("Pedestrian " + name + " crosses the road");
+            System.out.println("Car " + id + " stops");
         }
     }
 

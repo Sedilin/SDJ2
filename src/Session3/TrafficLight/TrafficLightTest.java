@@ -1,4 +1,4 @@
-package TrafficLight;
+package Session3.TrafficLight;
 
 public class TrafficLightTest {
     public static void main(String[] args) throws InterruptedException {
