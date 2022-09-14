@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="125.0" prefWidth="354.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Session5.uppercase.view.uppercase.UppercaseViewController">
+   <children>
+      <TextField fx:id="requestField" layoutX="72.0" layoutY="2.0" promptText="Request" />
+      <TextField fx:id="replyField" editable="false" layoutX="72.0" layoutY="32.0" promptText="Reply" />
+      <Button fx:id="submitButton" layoutX="257.0" layoutY="21.0" mnemonicParsing="false" onAction="#onSubmitButton" text="Button" />
+      <Label fx:id="errorLabel" layoutX="23.0" layoutY="83.0" text="The source field is empty" textFill="RED" />
+   </children>
+</AnchorPane>
