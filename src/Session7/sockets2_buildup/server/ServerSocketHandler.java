@@ -43,6 +43,7 @@ public class ServerSocketHandler implements Runnable {
                 System.out.println("Received from client: " + read);
                 if (read.getMessageBody().equalsIgnoreCase("exit")) {
                     socket.close();
+                    connectionPool.removeClient(this);
                     System.out.println("Client disconnected");
                     break;
                 }

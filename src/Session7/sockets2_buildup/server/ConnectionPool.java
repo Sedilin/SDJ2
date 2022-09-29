@@ -24,6 +24,7 @@ public class ConnectionPool {
 
     public void broadcast(Message msg)
     {
+        System.out.println("Sending: " + msg + " to " + conns.size() + " clients.");
         for (ServerSocketHandler ssh: conns)
         {
             ssh.sendMessage(msg);
