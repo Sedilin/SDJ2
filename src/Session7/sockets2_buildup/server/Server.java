@@ -1,5 +1,7 @@
 package Session7.sockets2_buildup.server;
 
+import Session7.sockets2_buildup.util.Message;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -17,16 +19,11 @@ public class Server {
                 Socket socket = serverSocket.accept();
                 System.out.println("Client connected");
 
-                ObjectInputStream inFromClient = new ObjectInputStream(socket.getInputStream());
-                ObjectOutputStream outToClient = new ObjectOutputStream(socket.getOutputStream());
-
-                String read = (String) inFromClient.readObject();
-                System.out.println("Received from client: "+read);
-                String result = read.toUpperCase();
-
-                outToClient.writeObject(result);
+                ServerSocketHandler ssh = new ServerSocketHandler(socket);
+                Thread t = new Thread(ssh);
+                t.start();
             }
-        }catch(IOException | ClassNotFoundException e){
+        }catch(IOException e){
             e.printStackTrace();
         }
     }

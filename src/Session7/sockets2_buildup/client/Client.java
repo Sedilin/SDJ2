@@ -1,5 +1,7 @@
 package Session7.sockets2_buildup.client;
 
+import Session7.sockets2_buildup.util.Message;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -17,13 +19,26 @@ public class Client {
             ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
 
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Please type message >");
 
-            String scanned = scanner.nextLine();
-            outToServer.writeObject(scanned);
+            while (true)
+            {
+                System.out.println("Please type message >");
 
-            String result = (String) inFromServer.readObject();
-            System.out.println("Client received: "+result);
+                String scanned = scanner.nextLine();
+                Message msg = new Message(scanned);
+
+                outToServer.writeObject(msg);
+                if (msg.getMessageBody().equalsIgnoreCase("exit"))
+                {
+                    socket.close();
+                    System.out.println("Client exits.");
+                    break;
+                }
+
+                Message result = (Message) inFromServer.readObject();
+                System.out.println("Client received: "+result);
+            }
+
         }catch(IOException | ClassNotFoundException e){
             e.printStackTrace();
         }
