@@ -10,13 +10,20 @@ import java.util.Scanner;
 
 public class Client {
 
+    private ObjectOutputStream outToServer;
+    private ObjectInputStream inFromServer;
+
     public void startClient() {
         try{
             Socket socket = new Socket("localhost", 2910);
             System.out.println("Connected to the server");
 
-            ObjectOutputStream outToServer = new ObjectOutputStream(socket.getOutputStream());
-            ObjectInputStream inFromServer = new ObjectInputStream(socket.getInputStream());
+             outToServer = new ObjectOutputStream(socket.getOutputStream());
+             inFromServer = new ObjectInputStream(socket.getInputStream());
+
+             Thread t = new Thread(this::listenToMessages);
+             t.setDaemon(true);
+             t.start();
 
             Scanner scanner = new Scanner(System.in);
 
@@ -35,12 +42,24 @@ public class Client {
                     break;
                 }
 
-                Message result = (Message) inFromServer.readObject();
-                System.out.println("Client received: "+result);
             }
 
-        }catch(IOException | ClassNotFoundException e){
+        }catch(IOException e){
             e.printStackTrace();
+        }
+    }
+
+    public void listenToMessages()
+    {
+        while (true)
+        {
+            try {
+                Message result = (Message) inFromServer.readObject();
+                System.out.println("Client received: "+result);
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }
