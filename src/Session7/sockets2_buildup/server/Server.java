@@ -14,12 +14,14 @@ public class Server {
         System.out.println("Starting server...");
         try{
             ServerSocket serverSocket = new ServerSocket(2910);
+            ConnectionPool connectionPool = new ConnectionPool();
 
             while(true){
                 Socket socket = serverSocket.accept();
                 System.out.println("Client connected");
 
                 ServerSocketHandler ssh = new ServerSocketHandler(socket);
+                connectionPool.addClient(ssh);
                 Thread t = new Thread(ssh);
                 t.start();
             }
