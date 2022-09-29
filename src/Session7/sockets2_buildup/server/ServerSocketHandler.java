@@ -10,11 +10,13 @@ import java.net.Socket;
 public class ServerSocketHandler implements Runnable {
 
     private Socket socket;
+    private ConnectionPool connectionPool;
     private ObjectInputStream inFromClient;
     private ObjectOutputStream outToClient;
 
-    public ServerSocketHandler(Socket socket) {
+    public ServerSocketHandler(Socket socket, ConnectionPool connectionPool) {
         this.socket = socket;
+        this.connectionPool = connectionPool;
         try
         {
              inFromClient = new ObjectInputStream(socket.getInputStream());
@@ -47,7 +49,7 @@ public class ServerSocketHandler implements Runnable {
 
                 String result = read.getMessageBody().toUpperCase();
                 Message m = new Message(result);
-                sendMessage(m);
+                connectionPool.broadcast(m);
 
             }
 

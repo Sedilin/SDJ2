@@ -20,7 +20,7 @@ public class Server {
                 Socket socket = serverSocket.accept();
                 System.out.println("Client connected");
 
-                ServerSocketHandler ssh = new ServerSocketHandler(socket);
+                ServerSocketHandler ssh = new ServerSocketHandler(socket, connectionPool);
                 connectionPool.addClient(ssh);
                 Thread t = new Thread(ssh);
                 t.start();
