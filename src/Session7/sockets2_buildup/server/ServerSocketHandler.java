@@ -24,6 +24,15 @@ public class ServerSocketHandler implements Runnable {
         }
     }
 
+    public void sendMessage(Message msg)
+    {
+        try {
+            outToClient.writeObject(msg);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void run() {
         try {
@@ -37,7 +46,9 @@ public class ServerSocketHandler implements Runnable {
                 }
 
                 String result = read.getMessageBody().toUpperCase();
-                outToClient.writeObject(new Message(result));
+                Message m = new Message(result);
+                sendMessage(m);
+
             }
 
         } catch (IOException | ClassNotFoundException e) {
