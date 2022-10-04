@@ -1,0 +1,3 @@
+LogLine{text='Test', dataTime=Session8.DataTime@816f27d}
+LogLine{text='Test', dataTime=Session8.Multiton_Singleton.DataTime@816f27d}
+LogLine{text='Funny', dataTime=Session8.Multiton_Singleton.DataTime@816f27d}
