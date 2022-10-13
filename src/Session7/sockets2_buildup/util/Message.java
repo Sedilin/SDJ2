@@ -17,8 +17,6 @@ public class Message implements Serializable {
 
     @Override
     public String toString() {
-        return "Message{" +
-                "messageBody='" + messageBody + '\'' +
-                '}';
+        return messageBody;
     }
 }

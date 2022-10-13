@@ -47,10 +47,7 @@ public class ServerSocketHandler implements Runnable {
                     System.out.println("Client disconnected");
                     break;
                 }
-
-                String result = read.getMessageBody().toUpperCase();
-                Message m = new Message(result);
-                connectionPool.broadcast(m);
+                connectionPool.broadcast(read);
 
             }
 
